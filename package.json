@@ -1,8 +1,7 @@
 {
-  "name": "dice-tower",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "name": "dice-tower-top-tens",
+  "version": "0.1.0",
+  "description": "API for board game rankings in Dice Tower Top 10 lists",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
@@ -19,9 +18,12 @@
     "grunt-sails-linker": "~0.9.5",
     "grunt-sync": "~0.0.4",
     "include-all": "~0.1.3",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
     "rc": "~0.5.0",
     "sails": "~0.11.0",
-    "sails-disk": "~0.10.0"
+    "sails-disk": "~0.10.0",
+    "sequelize": "^3.4.1"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -30,8 +32,12 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bwilson/dice-tower.git"
+    "url": "git://github.com/wilsonianb/dice-tower-top-tens.git"
   },
-  "author": "bwilson",
-  "license": ""
+  "author": "wilsonianb",
+  "license": "ISC",
+  "devDependencies": {
+    "sails-test-helper": "^0.4.4",
+    "sequelize-cli": "^1.7.2"
+  }
 }
