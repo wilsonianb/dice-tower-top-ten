@@ -4,6 +4,8 @@
   "description": "API for board game rankings in Dice Tower Top 10 lists",
   "keywords": [],
   "dependencies": {
+    "babel": "^5.6.23",
+    "babel-runtime": "^5.7.0",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
