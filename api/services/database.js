@@ -13,7 +13,9 @@ if (process.env.DATABASE_URL) {
   dbURL = 'postgres://postgres:postgres@'+process.env.POSTGRES_PORT_5432_TCP_ADDR+':'+process.env.POSTGRES_PORT_5432_TCP_PORT+'/postgres';
 }
 
-var sequelize = new Sequelize(dbURL, {});
+var sequelize = new Sequelize(dbURL, {
+  logging: false
+});
 
 var db        = {};
 

@@ -29,7 +29,8 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha test/* --compilers=js:babel/register --timeout 5000"
   },
   "main": "app.js",
   "repository": {
@@ -39,6 +40,7 @@
   "author": "wilsonianb",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^2.2.5",
     "sails-test-helper": "^0.4.4",
     "sequelize-cli": "^1.7.2"
   }
