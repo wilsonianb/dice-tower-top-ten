@@ -76,6 +76,7 @@ describe('Rankings', () => {
       done()
     })
   })
+
   it('.create should require a start_time',done => {
 
     database.Rankings.create({
@@ -88,4 +89,48 @@ describe('Rankings', () => {
       done()
     })
   })
+
+  it('.create should reject invalid dudes',done => {
+
+    database.Rankings.create({
+      game_id: 1,
+      list_id: 1,
+      dude: 'John',
+      rank: 1,
+      start_time: '2m50s'
+    })
+    .catch(err => {
+      assert.strictEqual(err.message, 'Validation error: Validation isIn failed')
+      done()
+    })
+  })
+
+  it('.create should require a valid rank',done => {
+
+    database.Rankings.create({
+      game_id: 1,
+      list_id: 1,
+      rank: 11,
+      start_time: '2m50s'
+    })
+    .catch(err => {
+      assert.strictEqual(err.message, 'Validation error: Validation max failed')
+      done()
+    })
+  })
+
+  it('.create should require a valid start_time',done => {
+
+    database.Rankings.create({
+      game_id: 1,
+      list_id: 1,
+      rank: 1,
+      start_time: '2 minutes'
+    })
+    .catch(err => {
+      assert.strictEqual(err.message, 'Validation error: Validation is failed')
+      done()
+    })
+  })
+
 })

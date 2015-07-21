@@ -2,7 +2,12 @@
 module.exports = function(sequelize, DataTypes) {
   var top_ten_lists = sequelize.define('Lists', {
     name: DataTypes.STRING,
-    url: DataTypes.STRING
+    url: {
+      type: DataTypes.STRING,
+      validate: {
+        contains: 'https://www.youtube.com/watch?v='
+      }
+    }
   }, {
     timestamps: false,
     underscored: true,

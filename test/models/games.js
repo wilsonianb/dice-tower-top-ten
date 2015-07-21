@@ -86,5 +86,17 @@ describe('Games', () => {
       done()
     })
   })
+
+  it('.create should require a valid url',done => {
+
+    database.Games.create({
+      name: 'Pandemic',
+      url: 'https://www.youtube.com/watch?v=ziL905aXGnE'
+    })
+    .catch(err => {
+      assert.strictEqual(err.message, 'Validation error: Must be valid boardgamegeek url')
+      done()
+    })
+  })
 })
 

@@ -86,5 +86,17 @@ describe('Lists', () => {
       done()
     })
   })
+
+  it('.create should require a valid url',done => {
+
+    database.Lists.create({
+      name: 'Top Ten Dice Games',
+      url: 'https://www.boardgamegeek.com'
+    })
+    .catch(err => {
+      assert.strictEqual(err.message, 'Validation error: Validation contains failed')
+      done()
+    })
+  })
 })
 
