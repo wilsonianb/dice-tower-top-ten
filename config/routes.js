@@ -33,7 +33,23 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    controller: 'index',
+    action: 'index'
+  },
+
+  '/games': {
+    controller: 'games',
+    action: 'index'
+  },
+
+  '/lists': {
+    controller: 'lists',
+    action: 'index'
+  },
+
+  '/lists/:game_id': {
+    controller: 'lists',
+    action: 'indexByGame'
   }
 
   /***************************************************************************

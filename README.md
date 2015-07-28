@@ -5,7 +5,8 @@ a [Sails](http://sailsjs.org) application
 ## API
 
 ##### GET /games
-##### GET /games/:name
+##### GET /lists
+##### GET /lists/:game_id
 
 ## Run locally
 
