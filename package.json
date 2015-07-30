@@ -6,8 +6,10 @@
   "dependencies": {
     "babel": "^5.6.23",
     "babel-runtime": "^5.7.0",
+    "csv": "^0.4.5",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-coffee": "~0.10.1",
     "grunt-contrib-concat": "~0.3.0",
@@ -30,7 +32,8 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "test": "mocha test/* --compilers=js:babel/register --timeout 5000"
+    "test": "mocha test/* --compilers=js:babel/register --timeout 5000",
+    "seed": "grunt seed"
   },
   "main": "app.js",
   "repository": {

@@ -19,7 +19,18 @@ To build the environment:
 
 ```
 $ docker-compose build
+```
+
+To run migrations on the database:
+
+```
 $ docker-compose run webapp sequelize --url=postgres://postgres:postgres@postgres/postgres db:migrate
+```
+
+To seed the db with top_ten_lists.csv:
+
+```
+$ docker-compose run webapp npm run seed
 ```
 
 To bring up the environment:
@@ -38,6 +49,8 @@ To run tests:
 ```
 $ docker-compose run webapp npm test
 ```
+
+NOTE: Tests truncate local db tables
 
 If you need a shell:
 
