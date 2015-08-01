@@ -24,13 +24,13 @@ To build the environment:
 $ docker-compose build
 ```
 
-To run migrations on the database:
+To run migrations on the database (run automatically with `npm start`):
 
 ```
 $ docker-compose run webapp sequelize --url=postgres://postgres:postgres@postgres/postgres db:migrate
 ```
 
-To seed the db with top_ten_lists.csv:
+To seed the db with top_ten_lists.csv (run automatically with `npm start`):
 
 ```
 $ docker-compose run webapp npm run seed

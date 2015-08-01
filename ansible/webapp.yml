@@ -1,0 +1,23 @@
+---
+- name: Stand up application container host
+  hosts: web
+  sudo: true
+  user: ubuntu
+  pre_tasks:
+    - name: Install wget
+      apt: name=wget state=latest
+    - name: Install docker
+      shell: wget -qO- https://get.docker.com/ | sh
+    - name: Install pip
+      apt: name=python-pip
+    - name: Install docker python
+      pip: name=docker-py version=1.2.2
+    - name: Ensure docker is running and enabled
+      service: name=docker state=started enabled=true
+  post_tasks:
+    - name: Remove unused docker images
+      shell: docker rmi `docker images -q`
+      ignore_errors: yes
+  roles:
+    - role: postgres
+    - role: webapp
