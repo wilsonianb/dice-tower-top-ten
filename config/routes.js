@@ -42,14 +42,14 @@ module.exports.routes = {
     action: 'index'
   },
 
+  '/games/:id/rankings': {
+    controller: 'games',
+    action: 'showRankings'
+  },
+
   '/lists': {
     controller: 'lists',
     action: 'index'
-  },
-
-  '/lists/:game_id': {
-    controller: 'lists',
-    action: 'indexByGame'
   }
 
   /***************************************************************************
