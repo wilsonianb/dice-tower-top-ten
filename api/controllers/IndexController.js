@@ -17,7 +17,8 @@ module.exports = {
       game: 'GET /games/:id',
       game_rankings: 'GET /games/:id/rankings',
       lists: 'GET /lists',
-      list: 'GET /lists/:id'
+      list: 'GET /lists/:id',
+      list_rankings: 'GET /lists/:id/rankings'
     });
   }
 };

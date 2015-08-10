@@ -60,6 +60,11 @@ module.exports.routes = {
   '/lists/:id': {
     controller: 'lists',
     action: 'show'
+  },
+
+  '/lists/:id/rankings': {
+    controller: 'lists',
+    action: 'showRankings'
   }
 
   /***************************************************************************

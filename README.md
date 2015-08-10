@@ -9,6 +9,7 @@ a [Sails](http://sailsjs.org) application
 ##### GET /games/:id/rankings
 ##### GET /lists
 ##### GET /lists/:id
+##### GET /lists/:id/rankings
 
 ## Run locally
 
