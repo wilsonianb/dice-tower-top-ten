@@ -31,4 +31,34 @@ describe('ListsController', () => {
         })
     })
   })
+
+  describe('GET /lists/:id', () => {
+
+    let list
+    beforeEach(async() => {
+      list = await database.Lists.create({
+        name: 'Top Ten Dice Games',
+        url: 'https://www.youtube.com/watch?v=PDQbqCF-FbY'
+      })
+    })
+
+    it('.show should return requested list',done => {
+      request.get(`/lists/${list.id}`)
+        .expect(200)
+        .end((err, resp) => {
+          expect(resp.body.list.name).to.equal(list.name)
+          expect(resp.body.list.url).to.equal(list.url)
+          done()
+        })
+    })
+
+    it('.show should return 404 for list not found',done => {
+      request.get(`/lists/404`)
+        .expect(404)
+        .end((err, resp) => {
+          expect(resp.body.error).to.equal('List not found')
+          done()
+        })
+    })
+  })
 })
