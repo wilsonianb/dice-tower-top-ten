@@ -14,6 +14,7 @@ module.exports = {
 
     return res.json({
       games: 'GET /games',
+      game: 'GET /games/:id',
       game_rankings: 'GET /games/:id/rankings',
       lists: 'GET /lists'
     });

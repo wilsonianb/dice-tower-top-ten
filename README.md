@@ -5,6 +5,7 @@ a [Sails](http://sailsjs.org) application
 ## API
 
 ##### GET /games
+##### GET /games/:id
 ##### GET /games/:id/rankings
 ##### GET /lists
 

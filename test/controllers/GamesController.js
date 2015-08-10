@@ -36,6 +36,36 @@ describe('GamesController', () => {
     })
   })
 
+  describe('GET /games/:id', () => {
+
+    let game
+    beforeEach(async() => {
+      game = await database.Games.create({
+        name: 'Pandemic',
+        url: 'https://boardgamegeek.com/boardgame/30549/pandemic'
+      })
+    })
+
+    it('.show should return requested game',done => {
+      request.get(`/games/${game.id}`)
+        .expect(200)
+        .end((err, resp) => {
+          expect(resp.body.game.name).to.equal(game.name)
+          expect(resp.body.game.url).to.equal(game.url)
+          done()
+        })
+    })
+
+    it('.show should return 404 for game not found',done => {
+      request.get(`/games/404`)
+        .expect(404)
+        .end((err, resp) => {
+          expect(resp.body.error).to.equal('Game not found')
+          done()
+        })
+    })
+  })
+
   describe('GET /games/:id/rankings', () => {
 
     let game, list, ranking

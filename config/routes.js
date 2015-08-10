@@ -42,6 +42,11 @@ module.exports.routes = {
     action: 'index'
   },
 
+  '/games/:id': {
+    controller: 'games',
+    action: 'show'
+  },
+
   '/games/:id/rankings': {
     controller: 'games',
     action: 'showRankings'

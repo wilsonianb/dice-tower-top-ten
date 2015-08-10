@@ -19,7 +19,33 @@ module.exports = {
   },
 
   /**
-   * `GamesController.showRankings)`
+   * `GamesController.show()`
+   */
+  show: async function (req, res) {
+    try {
+      const game = await database.Games.findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      if (game) {
+        return res.json({
+          game: game
+        })
+      } else {
+        return res.status(404).json({
+          error: 'Game not found'
+        })
+      }
+    } catch (error) {
+      return res.status(500).json({
+        error: error.message
+      })
+    }
+  },
+
+  /**
+   * `GamesController.showRankings()`
    */
   showRankings: async function (req, res) {
     try {
