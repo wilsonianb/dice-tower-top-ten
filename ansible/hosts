@@ -1,0 +1,8 @@
+[web]
+45.55.93.64
+
+[production]
+45.55.93.64
+
+[production:vars]
+deploy_environment=production

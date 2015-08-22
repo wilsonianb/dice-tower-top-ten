@@ -1,0 +1,5 @@
+- name: Stand up postgres container
+  docker:
+    name: dicetowertopten_postgres
+    image: postgres:latest
+    state: started

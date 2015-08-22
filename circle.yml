@@ -4,6 +4,9 @@ machine:
 
 dependencies:
   override:
+    - sudo add-apt-repository -y ppa:ansible/ansible
+    - sudo apt-get update -qq
+    - sudo apt-get install -qq ansible
     - sudo pip install 'docker-compose<1.3' 'requests==2.5.3'
     - docker-compose build
     - docker-compose up -d postgres && sleep 3;
@@ -13,3 +16,9 @@ database:
 test:
   override:
     - docker-compose run webapp npm test
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./push-to-docker.sh production
+      - cd ansible && ansible-playbook -i hosts -l production site.yml

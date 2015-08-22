@@ -31,6 +31,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
+    "prestart": "sh db_prestart.sh",
     "start": "node app.js",
     "test": "mocha test/* --compilers=js:babel/register --timeout 5000",
     "seed": "grunt seed"
