@@ -28,7 +28,8 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'rankings',
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        rankings.belongsTo(models.Lists);
+        rankings.belongsTo(models.Games);
       }
     }
   });

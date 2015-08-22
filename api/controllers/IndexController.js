@@ -14,8 +14,11 @@ module.exports = {
 
     return res.json({
       games: 'GET /games',
+      game: 'GET /games/:id',
+      game_rankings: 'GET /games/:id/rankings',
       lists: 'GET /lists',
-      rankings: 'GET /lists/:game_id'
+      list: 'GET /lists/:id',
+      list_rankings: 'GET /lists/:id/rankings'
     });
   }
 };

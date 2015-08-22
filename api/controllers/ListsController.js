@@ -19,34 +19,67 @@ module.exports = {
   },
 
   /**
-   * `ListsController.indexByGame()`
+   * `ListsController.show()`
    */
-  indexByGame: async function (req, res) {
-
-    const game_id = req.params.game_id
-    let lists = await database.Lists.findAll({
-      include: [{
-        model: database.Rankings,
+  show: async function (req, res) {
+    try {
+      const list = await database.Lists.findOne({
         where: {
-          game_id: game_id
+          id: req.params.id
         }
-      }]
-    })
-    lists = lists.map(list => {
-      return {
-        name: list.name,
-        rankings: list.Rankings.map(ranking => {
-          return {
-            url:  `${list.url}&t=${ranking.start_time}`,
-            rank: ranking.rank,
-            dude: ranking.dude
-          }
+      })
+      if (list) {
+        return res.json({
+          list: list
+        })
+      } else {
+        return res.status(404).json({
+          error: 'List not found'
         })
       }
-    })
-    return res.json({
-      lists: lists
-    })
+    } catch (error) {
+      return res.status(500).json({
+        error: error.message
+      })
+    }
+  },
+
+  /**
+   * `ListsController.showRankings()`
+   */
+  showRankings: async function (req, res) {
+    try {
+      const list_id = req.params.id
+      let rankings = await database.Rankings.findAll({
+        where: {
+          list_id: list_id
+        },
+        include: [
+          database.Games,
+          database.Lists
+        ]
+      })
+      if (!rankings.length) {
+        return res.status(404).json({
+          error: 'List rankings not found'
+        })
+      }
+      rankings = rankings.map(ranking => {
+        return {
+          url:  `${ranking.List.url}&t=${ranking.start_time}`,
+          rank: ranking.rank,
+          dude: ranking.dude,
+          game: ranking.Game
+        }
+      })
+      return res.json({
+        rankings: rankings
+      })
+    } catch (error) {
+      return res.status(500).json({
+        error: error.message
+      })
+    }
   }
 };
 
