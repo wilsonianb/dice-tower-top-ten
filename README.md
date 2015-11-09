@@ -1,5 +1,7 @@
 # Dice Tower Top Ten Lists API
 
+[![Circle CI](https://circleci.com/gh/wilsonianb/dice-tower-top-ten.svg?style=svg)](https://circleci.com/gh/wilsonianb/dice-tower-top-ten)
+
 a [Sails](http://sailsjs.org) application
 
 ## API
