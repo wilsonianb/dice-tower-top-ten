@@ -1,11 +1,10 @@
 - name: Stand up webapp container
   docker:
     name: dicetowertopten_webapp
-    image: "quay.io/wilsonianb/dice_tower:{{deploy_environment}}"
-    registry: "https://quay.io/v1/"
-    email: "{{ lookup('env','QUAY_EMAIL') }}"
-    username: "{{ lookup('env','QUAY_USERNAME') }}"
-    password: "{{ lookup('env','QUAY_PASSWORD') }}"
+    image: "wilsonianb/dice_tower:{{deploy_environment}}"
+    email: "{{ lookup('env','DOCKER_EMAIL') }}"
+    username: "{{ lookup('env','DOCKER_USERNAME') }}"
+    password: "{{ lookup('env','DOCKER_PASSWORD') }}"
     state: reloaded
     pull: always
     links:
