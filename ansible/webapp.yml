@@ -15,6 +15,9 @@
     - name: Ensure docker is running and enabled
       service: name=docker state=started enabled=true
   post_tasks:
+    - name: Remove unused docker containers
+      shell: docker rm `docker ps -a -q`
+      ignore_errors: yes
     - name: Remove unused docker images
       shell: docker rmi `docker images -q`
       ignore_errors: yes
