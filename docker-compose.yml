@@ -1,7 +1,5 @@
 webapp:
   build: .
-  volumes:
-    - .:/usr/src/app
   ports:
     - "1337:1337"
   links:
